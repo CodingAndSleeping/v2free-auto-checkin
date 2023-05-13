@@ -1,18 +1,28 @@
-# Vue 3 + TypeScript + Vite
+# 背景
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+由于科学上网的需求，需要用到v2rayN软件进行代理（不知道这个软件的小伙伴可以访问这个网址：https://w1.v2free.top/user ），由于该软件并完全免费，每天通过签到可以免费获取300-400mb的流量，流量可以累计但五天未签到自动清空所有流量，本人抱着打死都不充钱的理念，便开发了这款自动签到软件，该软件通过启动自动完成当日签到并且可以实时监控流量使用情况，使用起来非常方便，再也不用担心流量不知不觉用超了。
 
-## Recommended IDE Setup
+# 使用
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+首先在assets->cookie->cookie.txt文件夹里把你的cookie填进去。
+具体cookie怎么获取看如下示意图：
 
-## Type Support For `.vue` Imports in TS
+![Alt text](mdimg/cookie%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+执行以下命令：
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+```cmd
+npm i
+npm run electron:build
+```
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+即可得到build文件夹，其中：
+
+
+`v2freecheckin Setup 0.0.0.exe` 是安装程序，也可以通过 `win-unpacked`文件夹下的`v2freecheckin.exe`直接打开。
+
+
+# 软件界面
+
+![Alt text](mdimg/%E8%BD%AF%E4%BB%B6%E7%95%8C%E9%9D%A2.jpg)
+
