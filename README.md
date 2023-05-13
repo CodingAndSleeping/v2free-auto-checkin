@@ -7,7 +7,7 @@
 首先在assets->cookie->cookie.txt文件夹里把你的cookie填进去。
 具体cookie怎么获取看如下示意图：
 
-![Alt text](mdimg/cookie%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg)
+![Alt text](mdimg/cookie%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
 
 执行以下命令：
 
