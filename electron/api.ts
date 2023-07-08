@@ -42,10 +42,13 @@ export async function getData(Cookie: string): Promise<ItrafficInfo> {
       Referer: "https://w1.v2free.top/user",
     },
   });
+
+  
   const $ = Cheerio.load(res.data);
+
   return {
-    todayUsedTraffic: $("code.card-tag.tag-red").text(),
-    lastUsedTraffic: $("code.card-tag.tag-orange").text(),
-    unUsedTraffic: $("code.card-tag.tag-green").text(),
+    todayUsedTraffic: $('li:contains("今日已用:") > a').text(),
+    lastUsedTraffic: $('li:contains("过去已用:") > a').text(),
+    unUsedTraffic: $('div:contains("剩余流量:") > a').text(),
   };
 }
