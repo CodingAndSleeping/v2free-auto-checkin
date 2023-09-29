@@ -44,7 +44,7 @@
       "allowToChangeInstallationDirectory": true
     },
     "win": {
-      "icon":"./assets/img/Icon.png",
+      "icon": "./assets/img/Icon.png",
       "target": [
         {
           "target": "nsis"

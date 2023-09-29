@@ -2,17 +2,21 @@
 import { computed, ref } from "vue";
 import { IisCheck, ItrafficInfo } from "../index";
 import { calcuProgress } from "../utils/calcuProgress";
-const isCheck = ref<IisCheck>(await window.request.doCheckIn());
+const isCheck = ref<IisCheck>();
 
-const trafficInfo = ref<ItrafficInfo>(await window.request.doGetData());
+isCheck.value = await window.request.doCheckIn()
+
+const trafficInfo = ref<ItrafficInfo>();
+
+trafficInfo.value = await window.request.doGetData()
 
 setInterval(async () => {
   trafficInfo.value = await window.request.doGetData();
   console.log(trafficInfo.value);
 }, 300000);
-
+    
 const styleVal = computed(() => {
-  const progressObj = ref(calcuProgress(trafficInfo.value));
+  const progressObj = ref(calcuProgress(trafficInfo.value!));
   return {
     "--todayPro": progressObj.value.todayPro,
     "--lastPro": progressObj.value.lastPro,
@@ -25,7 +29,7 @@ const styleVal = computed(() => {
   <div class="main" :style="styleVal">
     <div class="today-use">
       <span class="today-label">今日已用:</span
-      ><span class="today-value">{{ trafficInfo.todayUsedTraffic }}</span>
+      ><span class="today-value">{{ trafficInfo?.todayUsedTraffic }}</span>
     </div>
 
     <div class="today-bg">
@@ -34,7 +38,7 @@ const styleVal = computed(() => {
 
     <div class="last-use">
       <span class="last-label">过去已用:</span
-      ><span class="last-value">{{ trafficInfo.lastUsedTraffic }}</span>
+      ><span class="last-value">{{ trafficInfo?.lastUsedTraffic }}</span>
     </div>
 
     <div class="last-bg">
@@ -43,7 +47,7 @@ const styleVal = computed(() => {
 
     <div class="un-used">
       <span class="un-label">流量剩余:</span
-      ><span class="un-value">{{ trafficInfo.unUsedTraffic }}</span>
+      ><span class="un-value">{{ trafficInfo?.unUsedTraffic }}</span>
     </div>
 
     <div class="un-bg">
@@ -52,7 +56,7 @@ const styleVal = computed(() => {
 
     <div class="check">
       <span>{{
-        isCheck.ret === 0 || isCheck.ret === 1
+        isCheck?.ret === 0 || isCheck?.ret === 1
           ? "今日已自动帮您签到"
           : "签到系统好像出问题了"
       }}</span>
